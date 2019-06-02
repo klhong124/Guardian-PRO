@@ -7,6 +7,7 @@ var logger = require('morgan');
 var index = require('./routes/index');
 var signUp = require('./routes/signUp');
 var login = require('./routes/login');
+var profile = require('./routes/profile');
 var graphqlHTTP = require('./routes/graphqlHTTP');
 
 var app = express();
