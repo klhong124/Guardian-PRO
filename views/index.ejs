@@ -23,17 +23,47 @@
   </div>
   <div class="container text-center">  
       <%if (login) { %>
-        <p>you are logined</p>
-        <button id="button">click me</button>
+        <center>
+          <div class="row" style="max-width:800px;">
+            <div class="col-xs-6">
+            <center>
+              <div class="card">
+                hi
+              </div>
+            </center>
+            </div>
+            <div class="col-xs-6" id="unlock">
+              <center>
+              <div class="card">
+                unlock
+              </div>
+            </center>
+            </div>
+            <div class="col-xs-6">
+              <center>
+              <div class="card">
+                hi
+              </div>
+            </center>
+            </div>
+            <div class="col-xs-6">
+              <center>
+              <div class="card">
+                hi
+              </div>
+            </center>
+            </div>
+          </div>
+        </center>
       <% } else { %>
         <p>Guardian PRO is a "smart doorbell" - an intelligent device connected with a mobile application. When someone rings the bell, the device would capture the visitor and send a video or photo to the housekeeper via the mobile app and the housekeeper can control the unlock the door by the mobile app controller if the housekeeper agree to let him in.</p>
       <% } %>
   </div>
 <script>
-$("#button").click(function(){
-  $.ajax({url: "/esp32", success: function(result){
-  }});
-});
+  $("#unlock").click(function(){
+    $.ajax({url: "/esp32", success: function(result){
+    }});
+  });
 </script>
 </div>
 </body>

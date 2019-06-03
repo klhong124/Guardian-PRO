@@ -1,6 +1,22 @@
+body {
+	background: rgb(46, 46, 46);
+	color: rgb(126, 126, 126);
+}
 .navbar-nav li a:hover {
 	color: #1abc9c !important;
 }
 .active > a {
 	color: #1abc9c !important;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
+	transition: 0.3s;
+	text-align: center;
+	margin-top: 40px;
+	height: 250px;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.788);
 }

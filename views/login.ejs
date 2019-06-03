@@ -2,6 +2,104 @@
 <html lang="en">
 <head>
 <% include partials/head %> 
+<style>
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(126, 126, 126);
+  -webkit-box-shadow: 0 0 0px 1000px rgb(46, 46, 46) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.inp {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 280px;
+}
+.inp .label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: rgb(126, 126, 126);
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+}
+.inp .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: white;
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+.inp input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgb(126, 126, 126);
+  background: none;
+  border-radius: 0;
+  color: rgb(126, 126, 126);
+  transition: all 0.15s ease;
+}
+.inp input:hover {
+  background: rgba(34,50,84,0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+  color:rgb(126, 126, 126);
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+  background: none;
+  outline: none;
+}
+.inp input:focus + span {
+  color: white;
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+  transform: scaleX(1);
+}
+.btn {
+  background:inherit;
+  cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 22px;
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -o-transition: .3s;
+  display: inline-block;
+  color:  rgb(126, 126, 126);
+  border: 2px  rgb(126, 126, 126) solid;
+}
+
+.btn:hover {
+  background-color:  rgb(126, 126, 126,0.2);
+  border: 2px #1ABC9C solid;
+  color: #1ABC9C;
+}
+</style>
 </head>
 <body>
 <script>
@@ -16,11 +114,17 @@
 </div>
 <center>
 <form action="/login" method="POST">
-    Username:<br>
-    <input type="text" name="username" value=""><br>
-    Password:<br>
-    <input type="password" name="password" value=""><br>
-    <input type="submit" value="Submit">
+  <label for="username" class="inp">
+    <input type="text" id="username" name="username" placeholder="&nbsp;">
+    <span class="label">Username</span>
+    <span class="border"></span>
+  </label><br><br>
+  <label for="password" class="inp">
+    <input type="password" id="password" name="password" placeholder="&nbsp;">
+    <span class="label">Password</span>
+    <span class="border"></span>
+  </label><br><br>
+    <input class="btn" type="submit" value="Submit">
 </form> 
 </center>
 </body>
