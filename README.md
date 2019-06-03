@@ -1,5 +1,5 @@
 ## installation requirement
-1. npm i graphql express-graphql mongodb ejs http-errors express morgan debug cookie-parser
+1. npm i graphql express-graphql mongodb ejs http-errors express morgan debug cookie-parser request
 2. npm i pm2 -g
 
 ## start server

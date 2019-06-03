@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var request = require('request');
 
 var index = require('./routes/index');
 var signUp = require('./routes/signUp');
@@ -27,6 +28,17 @@ app.use('/signUp', signUp);
 app.use('/login', login);
 app.use('/profile', profile);
 app.use('/graphql', graphqlHTTP);
+
+// ESP32
+app.get('/esp32', function(req, res, next) {
+	request('http://192.168.1.193/26/on', function (error, response, body) {
+		console.error('esp32-error:', error); // Print the error if one occurred
+		console.log('esp32-statusCode:', response && response.statusCode); // Print the response status code if a response was received
+		res.send(body);
+	});
+});
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

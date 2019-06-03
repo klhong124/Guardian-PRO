@@ -22,23 +22,19 @@
     <% } %>
   </div>
   <div class="container text-center">  
-  <div class="row">
-    <div class="col-sm-4">
       <%if (login) { %>
-        <p><%=user.name%></p>
+        <p>you are logined</p>
+        <button id="button">click me</button>
       <% } else { %>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Guardian PRO is a "smart doorbell" - an intelligent device connected with a mobile application. When someone rings the bell, the device would capture the visitor and send a video or photo to the housekeeper via the mobile app and the housekeeper can control the unlock the door by the mobile app controller if the housekeeper agree to let him in.</p>
       <% } %>
-    </div>
-    <div class="col-sm-4"> 
-      <div class="card">
-        <div class="card-body">Basic card</div>
-      </div>
-    </div>
-    <div class="col-sm-4"> 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    </div>
   </div>
+<script>
+$("#button").click(function(){
+  $.ajax({url: "/esp32", success: function(result){
+  }});
+});
+</script>
 </div>
 </body>
 <% include partials/script %>
