@@ -27,7 +27,7 @@
           <div class="row" style="max-width:800px;">
             <div class="col-xs-6">
             <center>
-              <div class="card">
+              <div class="card" id="data">
                 hi
               </div>
             </center>
@@ -61,9 +61,15 @@
   </div>
 <script>
   $("#unlock").click(function(){
-    $.ajax({url: "/esp32", success: function(result){
+    $.ajax({url: "/esp32/door/unlock", success: function(result){
     }});
   });
+
+  setInterval(function(){
+      $.ajax({url: "/esp32/door", success: function(result){
+        $("#data").html(result);
+      }});
+  },200);
 </script>
 </div>
 </body>
