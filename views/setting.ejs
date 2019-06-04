@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<% include ./partials/head %> 
+<link rel="stylesheet" href="./stylesheets/input.css">
+</head>
+<body>
+<script>
+  $(document).ready(function(){
+      $('#profile').addClass('active');
+      $("input[name=gender][value='<%=user.gender%>']").prop("checked",true);
+  });
+</script>
+<% include ./partials/menu-login %>
+<div class="container-fluid text-center">    
+  <h3>Setting</h3><br>
+</div>
+<center>
+    <form action="/setting" method="POST">
+      <label for="name" class="inp">
+        <input type="text" id="name" name="name" placeholder="&nbsp;" value="<%=user.name%>">
+        <span class="label">Name</span>
+        <span class="border"></span>
+      </label><br><br>
+      <label for="_id" class="inp">
+        <input type="text" id="_id" placeholder="&nbsp;" value="<%=user._id%>" disabled>
+        <span class="label">ID</span>
+        <span class="border"></span>
+      </label><br><br>
+      <label for="username" class="inp">
+        <input type="text" id="username" placeholder="&nbsp;" value="<%=user.username%>" disabled>
+        <span class="label">Username</span>
+        <span class="border"></span>
+      </label><br><br>
+      <label for="password" class="inp">
+        <input type="password" id="password" name="password" placeholder="&nbsp;" value="<%=user.password%>">
+        <span class="label">Password</span>
+        <span class="border"></span>
+      </label><br><br>
+      <label for="email" class="inp">
+        <input type="text" id="email" name="email" placeholder="&nbsp;" value="<%=user.email%>">
+        <span class="label">Email</span>
+        <span class="border"></span>
+      </label><br><br>
+      <label for="phone" class="inp">
+        <input type="tel" id="phone" name="phone" placeholder="&nbsp;" value="<%=user.phone%>">
+        <span class="label">Phone</span>
+        <span class="border"></span>
+      </label><br>
+      <label class="inp">
+        <span class="label">Gender</span>
+      </label><br><br><br>
+      <div class="forms">
+        <label for="male">
+          <input type="radio" id="male" name="gender" value="male">
+          <span class="rdo"></span>
+          <span>Male</span>
+        </label>
+        <label for="female">
+          <input type="radio" id="female" name="gender" value="female">
+          <span class="rdo"></span>
+          <span>Female</span>
+        </label><br>
+      </div>
+      <input class="btn" type="submit" value="Save">
+    </form>
+    </center>
+    </body>
+    <script>
+    setTimeout(function(){
+      $("#name").trigger( "focus" );
+      $("#username").trigger( "focus" );
+      $("#password").trigger( "focus" );
+      $("#email").trigger( "focus" );
+      $("#Phone").trigger( "focus" );
+      $("#email").trigger( "blur" );
+     }, 100);
+    </script>
+    <% include partials/script %>
+    </html>

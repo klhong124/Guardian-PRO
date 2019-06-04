@@ -2,178 +2,7 @@
 <html lang="en">
 <head>
 <% include partials/head %>
-<style>
-/* Change Autocomplete styles in Chrome*/
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: rgb(126, 126, 126);
-  -webkit-box-shadow: 0 0 0px 1000px rgb(46, 46, 46) inset;
-  transition: background-color 5000s ease-in-out 0s;
-}
-
-.inp {
-  position: relative;
-  margin: auto;
-  width: 100%;
-  max-width: 280px;
-}
-.inp .label {
-  position: absolute;
-  top: 16px;
-  left: 0;
-  font-size: 16px;
-  color: rgb(126, 126, 126);
-  font-weight: 500;
-  transform-origin: 0 0;
-  transition: all 0.2s ease;
-}
-.inp .border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: white;
-  transform: scaleX(0);
-  transform-origin: 0 0;
-  transition: all 0.15s ease;
-}
-.inp input {
-  -webkit-appearance: none;
-  width: 100%;
-  border: 0;
-  padding: 12px 0;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgb(126, 126, 126);
-  background: none;
-  border-radius: 0;
-  color: rgb(126, 126, 126);
-  transition: all 0.15s ease;
-}
-.inp input:hover {
-  background: rgba(34,50,84,0.03);
-}
-.inp input:not(:placeholder-shown) + span {
-  color:rgb(126, 126, 126);
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus {
-  background: none;
-  outline: none;
-}
-.inp input:focus + span {
-  color: white;
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus + span + .border {
-  transform: scaleX(1);
-}
-.btn {
-  background:inherit;
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 22px;
-  transition: .3s;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -o-transition: .3s;
-  display: inline-block;
-  color:  rgb(126, 126, 126);
-  border: 2px  rgb(126, 126, 126) solid;
-}
-
-.btn:hover {
-  background-color:  rgb(126, 126, 126,0.2);
-  border: 2px #1ABC9C solid;
-  color: #1ABC9C;
-}
-.rdo {
-  position: relative;
-  display: block;
-  float: left;
-  width: 18px;
-  height: 18px;
-  border-radius: 10px;
-  background-color: #606062;
-  background-image: linear-gradient(#474749, #606062);
-  box-shadow: inset 0 1px 1px rgba(255,255,255,0.15), inset 0 -1px 1px rgba(0,0,0,0.15);
-  transition: all 0.15s ease;
-}
-.rdo:after {
-  content: "";
-  position: absolute;
-  display: block;
-  top: 6px;
-  left: 6px;
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0;
-  transform: scale(0);
-}
-.rdo + span {
-  float: left;
-  margin-left: 6px;
-}
-.forms {
-  margin: auto;
-  user-select: none;
-}
-.forms label {
-  display: inline-block;
-  margin: 10px;
-  cursor: pointer;
-}
-.forms input[type="checkbox"],
-.forms input[type="radio"] {
-  position: absolute;
-  opacity: 0;
-}
-.forms input[type="radio"]:checked + .rdo {
-  background-color: #606062;
-  background-image: linear-gradient(#255cd2, #1d52c1);
-}
-.forms input[type="radio"]:checked + .rdo:after {
-  opacity: 1;
-  transform: scale(1);
-  transition: all 0.15s ease;
-}
-.btn {
-  background:inherit;
-  cursor: pointer;
-  margin: 10px;
-  border-radius: 5px;
-  text-decoration: none;
-  padding: 10px;
-  font-size: 22px;
-  transition: .3s;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -o-transition: .3s;
-  display: inline-block;
-  color:  rgb(126, 126, 126);
-  border: 2px  rgb(126, 126, 126) solid;
-}
-
-.btn:hover {
-  background-color:  rgb(126, 126, 126,0.2);
-  border: 2px #1ABC9C solid;
-  color: #1ABC9C;
-}
-</style>
+<link rel="stylesheet" href="./stylesheets/input.css">
 </head>
 <body>
 <script>
@@ -187,7 +16,7 @@ select:-webkit-autofill:focus {
 </div>
 <center>
 <% if (error) { %>
-<p style="color:red"> username already been used.</p>
+<p style="color:rgba(255, 0, 0, 0.9)"> username already been used.</p>
 <% } %>
 <form action="/signUp" method="POST">
   <label for="name" class="inp">
@@ -234,6 +63,15 @@ select:-webkit-autofill:focus {
 </form>
 </center>
 </body>
+<script>
+setTimeout(function(){
+  $("#name").trigger( "focus" );
+  $("#username").trigger( "focus" );
+  $("#password").trigger( "focus" );
+  $("#email").trigger( "focus" );
+  $("#Phone").trigger( "focus" );
+  $("#email").trigger( "blur" );
+ }, 100);
+</script>
 <% include partials/script %>
-
 </html>

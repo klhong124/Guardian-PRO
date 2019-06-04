@@ -46,5 +46,13 @@ module.exports = buildSchema(`
 			email: String
 			phone: Int
 			): User
+		updateUser(
+			_id:ID
+			name: String
+			password:String
+			gender: String
+			email: String
+			phone: Int
+			): User
 	}
 `);

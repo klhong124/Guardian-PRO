@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
 <% include partials/head %> 
+<style>
+h4{
+  margin-top: 50px;
+}
+</style>
 </head>
 <body>
 <script>
@@ -27,29 +32,33 @@
           <div class="row" style="max-width:800px;">
             <div class="col-xs-6">
             <center>
-              <div class="card" id="data">
-                hi
+              <div class="card">
+                <img src="./images/Live-icon.png" width="150" height='150' style="object-fit: cover;">
+                <h4>Live</h4>
               </div>
             </center>
             </div>
             <div class="col-xs-6" id="unlock">
               <center>
               <div class="card">
-                unlock
+                <img src="./images/loading-icon.gif" width="150" height='150' style="object-fit: cover;" id="lock-img">
+                <h4 id="lockcaption">Loading</h4>
               </div>
             </center>
             </div>
             <div class="col-xs-6">
               <center>
               <div class="card">
-                hi
+                <img src="./images/RED_CODE.png" width="150" height='150' style="object-fit: cover;">
+                <h4>Red Code</h4>
               </div>
             </center>
             </div>
             <div class="col-xs-6">
               <center>
-              <div class="card">
-                hi
+              <div class="card" onclick="location.href = 'setting'">
+                <img src="./images/setting-icon.png" width="150" height='150' style="object-fit: cover;">
+                <h4>Setting</h4>
               </div>
             </center>
             </div>
@@ -60,16 +69,39 @@
       <% } %>
   </div>
 <script>
+  var lock = false;
   $("#unlock").click(function(){
-    $.ajax({url: "/esp32/door/unlock", success: function(result){
-    }});
+    if ( lock ){
+        $.ajax({url: "/esp32/door/unlock", 
+        success: function(result){
+           $("#lock-img").attr("src","./images/loading-icon.gif");
+           $("#lockcaption").text("Loading");
+        },
+        timeout: 2000
+      });
+    }
   });
 
   setInterval(function(){
-      $.ajax({url: "/esp32/door", success: function(result){
-        $("#data").html(result);
-      }});
-  },200);
+      $.ajax({url: "/esp32/door", 
+      success: function(result){
+        console.log(result);
+        if (result != ''){
+          if (result == 4095){
+            lock = false;
+            $("#lock-img").attr("src","./images/unlock-icon.png");
+            $("#lockcaption").text("Unlock");
+          }
+          if (result == 0) {
+            lock = true;
+            $("#lock-img").attr("src","./images/lock-icon.png");
+            $("#lockcaption").text("Lock");
+          }
+        }
+      },
+      timeout: 3000
+      });
+  },500);
 </script>
 </div>
 </body>

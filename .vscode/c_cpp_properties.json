@@ -3,9 +3,11 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\\\\\\\Users\\\\\\\\klhon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Arduino15\\\\\\\\packages\\\\\\\\esp32\\\\\\\\tools\\\\\\\\**",
-                "C:\\\\\\\\Users\\\\\\\\klhon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Arduino15\\\\\\\\packages\\\\\\\\esp32\\\\\\\\hardware\\\\\\\\esp32\\\\\\\\1.0.2\\\\\\\\**",
-                "C:/Users/klhon/AppData/Local/Arduino15/packages/esp32/hardware/esp32/1.0.2/libraries/ESPmDNS/src"
+                "C:\\\\Users\\\\klhon\\\\AppData\\\\Local\\\\Arduino15\\\\packages\\\\esp32\\\\tools\\\\**",
+                "C:\\\\Users\\\\klhon\\\\AppData\\\\Local\\\\Arduino15\\\\packages\\\\esp32\\\\hardware\\\\esp32\\\\1.0.2\\\\**",
+                "C:/Users/klhon/AppData/Local/Arduino15/packages/esp32/hardware/esp32/1.0.2/libraries/ESPmDNS/src",
+                "C:\\Users\\klhon\\AppData\\Local\\Arduino15\\packages\\esp32\\hardware\\esp32\\1.0.2\\**",
+                "C:\\Users\\klhon\\AppData\\Local\\Arduino15\\packages\\esp32\\tools\\**"
             ],
             "forcedInclude": [],
             "intelliSenseMode": "msvc-x64"

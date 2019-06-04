@@ -10,19 +10,17 @@
   });
 </script>
 <% include ./partials/menu-login %>
-<div class="container-fluid bg-3 text-center">    
+<div class="container-fluid text-center">    
   <h3>Profile</h3><br>
-</div>
-<center>
 <div>
-    Name:<%=user.name%><br>
-    ID:<%=user._id%><br>
-    Username:<%=user.username%><br>
-    Email:<%=user.email%><br>
-    Phone:<%=user.phone%><br>
-    Gender:<%=user.gender%><br>
+  <h4>Name: <%=user.name%></h4>
+  <h4>ID: <%=user._id%></h4>
+  <h4>Username: <%=user.username%></h4>
+  <h4>Email: <%=user.email%></h4>
+  <h4>Phone: <%=user.phone%></h4>
+  <h4>Gender: <%=user.gender%></h4>
 </div> 
-</center>
+</div>
 </body>
 <% include ./partials/script %>
 </html>

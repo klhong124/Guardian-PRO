@@ -83,5 +83,37 @@ module.exports = {
 		};
 		var result = await getResult();
 		return result;
+	},
+	updateUser: async (input) => {
+
+		if (input._id) {
+			input._id = new ObjectId(input._id);
+		}
+		var getResult = () => {
+			return new Promise((resolve) => {
+				MongoClient.connect(url, { useNewUrlParser: true }, function(err, db) {
+					if (err) throw err;
+					db.db('GuardianPRO-DB').collection('users').updateOne({
+						_id: input._id
+					},{
+						$set: {
+							_id: input._id,
+							name:input.name,
+							password:input.password,
+							gender:input.gender,
+							email:input.email,
+							phone:input.phone
+						}
+					});
+					db.db('GuardianPRO-DB').collection('users').findOne(input._id, function(err, res) {
+						if (err) throw err;
+						db.close();
+						resolve(res);
+					});
+				});
+			});
+		};
+		var result = await getResult();
+		return result;
 	}
 };

@@ -9,6 +9,8 @@ var index = require('./routes/index');
 var signUp = require('./routes/signUp');
 var login = require('./routes/login');
 var profile = require('./routes/profile');
+var setting = require('./routes/setting');
+
 var graphqlHTTP = require('./routes/graphqlHTTP');
 
 var app = express();
@@ -27,6 +29,7 @@ app.use('/', index);
 app.use('/signUp', signUp);
 app.use('/login', login);
 app.use('/profile', profile);
+app.use('/setting', setting);
 app.use('/graphql', graphqlHTTP);
 
 // ESP32
