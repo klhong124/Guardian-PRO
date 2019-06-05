@@ -3,8 +3,8 @@
 #include <WebServer.h>
 #include <ESPmDNS.h>
 
-const char* ssid = "AXE";
-const char* password = "erickwan";
+const char* ssid = "Guardian-Pro";
+const char* password = "nnnnnnnn";
 
 WebServer server(80);
 
@@ -60,7 +60,7 @@ void setup(void) {
   server.on("/door/unlock", []() {
     digitalWrite(DoorLock, 1);
     delay(500);
-    digitalWrite(DoorLock, 1);
+    digitalWrite(DoorLock, 0);
     server.send(200, "text/plain", "this works as well");
   });
     server.on("/door", []() {

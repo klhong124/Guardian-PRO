@@ -34,14 +34,14 @@ app.use('/graphql', graphqlHTTP);
 
 // ESP32
 app.get('/esp32/door', function(req, res, next) {
-	request('http://192.168.1.193/door', function (error, response, body) {
+	request('http://192.168.1.164/door', function (error, response, body) {
 		console.error('esp32-error:', error); // Print the error if one occurred
 		console.log('esp32-statusCode:', response && response.statusCode); // Print the response status code if a response was received
 		res.send(body);
 	});
 });
 app.get('/esp32/door/unlock', function(req, res, next) {
-	request('http://192.168.1.193/door/unlock', function (error, response, body) {
+	request('http://192.168.1.164/door/unlock', function (error, response, body) {
 		console.error('esp32-error:', error); // Print the error if one occurred
 		console.log('esp32-statusCode:', response && response.statusCode); // Print the response status code if a response was received
 		res.send(body);

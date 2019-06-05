@@ -2,5 +2,5 @@
     "port": "COM5",
     "board": "esp32:esp32:esp32doit-devkit-v1",
     "configuration": "FlashFreq=80,UploadSpeed=115200,DebugLevel=none",
-    "sketch": "guardian\\guardian.ino"
+    "sketch": "arduino\\guardian.ino"
 }
